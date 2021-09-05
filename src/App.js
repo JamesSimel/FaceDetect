@@ -90,7 +90,7 @@ const particlesOptions = {
     detectRetina: true,
 }
 const app = new Clarifai.App({
-  apiKey: 'b27c2a1074e742ef84281ca6acace9a5'
+  apiKey: '{YOU_API_KEY}'
  });
 
 class App extends Component {
