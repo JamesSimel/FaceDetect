@@ -1,6 +1,9 @@
-.App {
+body{
+  background: linear-gradient(rgb(117, 60, 208), rgb(239, 131, 70));
   text-align: center;
+  height: 100vh ;
 }
+
 .center{
   display: flex;
   justify-content: center;
