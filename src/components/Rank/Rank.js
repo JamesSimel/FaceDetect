@@ -1,11 +1,12 @@
+import userEvent from "@testing-library/user-event";
 import React from "react";
-const Rank = () => {
+const Rank = ({name, entries}) => {
     return(
         <div>
             <div className='white f3 center'>
-                {'Simel, you current rank is...'}
+                {`${name}, you current entry count is...`}
             </div>
-            <div className='white f1 center'>{'#10'}</div>
+            <div className='white f1 center'>{entries}</div>
         </div>
     );
 }
