@@ -33,15 +33,14 @@ class Register extends React.Component {
         })
             .then(response => response.json())
             .then(user => {
-                if(user) {
+                if(user.id) {
                     this.props.loadUser(user)
-                    this.props.onRouteChange('home')
+                    this.props.onRouteChange('home');
                 }
             })
         
     }
     render(){
-        const { onRouteChange } = this.props;
         return (
             <article className='ba dark-gray b--black-10 shadow-3 br3 mv4 w-50-m mw6 w-100 w-25-l center'>
                 <main className="pa4 black-80">
@@ -81,7 +80,7 @@ class Register extends React.Component {
                         </fieldset>
                         <div className="">
                             <input
-                                onClick={() => onRouteChange('home')}
+                                onClick={this.onSubmitRegister}
                                 className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib"
                                 type="submit"
                                 value="Register"
