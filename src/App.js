@@ -1,6 +1,5 @@
 import React,{ Component } from 'react'
 import ParticlesBg from 'particles-bg'
-import Clarifai from 'clarifai';
 import './App.css'
 import 'tachyons'
 import Navigation from './components/Navigation/Navigation'
@@ -12,9 +11,6 @@ import Signin from './components/Signin/Signin'
 import Register from './components/Register/Register'
 
 
-const app = new Clarifai.App({
-  apiKey: 'a98ffe3acb7b4ed884e7ab5a5811c7b0'
- });
 const initialState = {
   input:'',
       imageUrl: "",
@@ -67,18 +63,16 @@ class App extends Component {
   };
   onButtonSubmit = () => {
       this.setState({imageUrl: this.state.input});
-      app.models
-        .predict(
-          {
-            id: 'face-detection',
-            name: 'face-detection',
-            version: '6dc7e46bc9124c5c8824be4822abe105',
-            type: 'visual-detector',
-          },
-          this.state.input)
+          fetch('http://localhost:4000/imageurl',{
+            method:'post',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({input: this.state.input})
+          })
           .then((response) => {
             if(response){
-              fetch('http//localhost:4000/image',{
+              fetch('http:clear//localhost:4000/image',{
                 method:'put',
                 headers: {
                     'Content-Type': 'application/json',

@@ -23,18 +23,18 @@ class Register extends React.Component {
         fetch('http://localhost:4000/register',{
             method:'post',
             headers: {
-                'Content-Type': 'application/json',
+                'content-type': 'application/json',
             },
             body: JSON.stringify({
                 email: this.state.email,
                 password: this.state.password,
-                name:this.state.name
+                name: this.state.name
             })
         })
             .then(response => response.json())
             .then(user => {
                 if(user.id) {
-                    this.props.loadUser(user)
+                    this.props.loadUser(user);
                     this.props.onRouteChange('home');
                 }
             })
