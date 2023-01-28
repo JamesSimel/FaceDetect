@@ -72,7 +72,7 @@ class App extends Component {
           })
           .then((response) => {
             if(response){
-              fetch('http:clear//localhost:4000/image',{
+              fetch('http://localhost:4000/image',{
                 method:'put',
                 headers: {
                     'Content-Type': 'application/json',

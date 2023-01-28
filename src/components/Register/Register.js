@@ -23,7 +23,7 @@ class Register extends React.Component {
         fetch('http://localhost:4000/register',{
             method:'post',
             headers: {
-                'content-type': 'application/json',
+                'Content-Type': 'application/json',
             },
             body: JSON.stringify({
                 email: this.state.email,
@@ -38,7 +38,7 @@ class Register extends React.Component {
                     this.props.onRouteChange('home');
                 }
             })
-        
+            .catch(err => console.log(err))
     }
     render(){
         return (
